@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>MyWeather|Home</title>
+        <meta name="description" content="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" href="images/favicloud.png" type="image/x-icon">
+    </head>
+    <body>
+       {{>navbar}}
+
+       <div class="container_fluid main-content">
+            <div class="row">
+                <div class="col-md-10 col-12 mx-auto">
+                    <div class="main-content">
+                        <form class="temp-form">
+                            <input type="text" id="cityName" placeholder="Enter your city">
+                            <input type="Submit" value="Search" id="submitBtn">
+                        </form>
+                    </div>
+                    <div class="tempInfo">
+                        <div class="topLayer">
+                            <p id="day">Tuesday</p>
+                            <p id="today_date">xyz</p>
+                        </div>
+                        <div class="mainLayer">
+                            <p id="city-name">City Name</p>
+                            <div class="middleLayer data_hide">
+                                <p ><span id="temp">0</span><sup>o</sup>C</p>
+                                <p id="tempStatus"><i class="fas fa-cloud"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <p>Created with ❤ by Bikram</p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script>
+
+        const getCurrentDay = () => {
+            let weekday = new Array(7);
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wed";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+
+            let currentTime = new Date();
+            days = weekday[currentTime.getDay()];
+            let day = document.getElementById('day');
+
+            day.innerText = days;
+
+        };
+        const getCurrentTime = () => {
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"]
+            var now = new Date();
+            var month = now.getMonth() +1;
+            var dayd = now.getDate();
+
+            return `${months[month]} ${dayd}`
+            
+        }
+        today_date.innerText = getCurrentTime();
+        getCurrentDay();
+
+    </script>
+</html>
