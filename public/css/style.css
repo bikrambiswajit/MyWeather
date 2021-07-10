@@ -15,7 +15,7 @@ html{
     font-size: 62.5%;
 }
 body{
-    height: 100vh;
+    height: 110vh;
     display: flex;
     flex-direction: column;
 }
@@ -193,7 +193,7 @@ footer p{
     font-size: 1.5rem;
 }
 
-@media (max-width: 768px){
+@media (max-width: 480px){
     .main-header-left{
         height: auto;
         margin: 5rem 0;
